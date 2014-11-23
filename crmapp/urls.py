@@ -9,6 +9,7 @@ from accounts.urls import account_urls
 from contacts.urls import contact_urls
 from contacts.views import ContactDelete
 from communications.urls import comm_urls
+from communications.views import CommDelete
 
 urlpatterns = patterns('',
 
@@ -54,5 +55,8 @@ urlpatterns = patterns('',
         'crmapp.communications.views.comm_cru', name='comm_new'
     ),
     url(r'^comm/(?P<uuid>[\w-]+)/', include(comm_urls)),
+    url(r'^comm/(?P<pk>[\w-]+)/delete/$',
+        CommDelete.as_view(), name='comm_delete'
+    ),
 
 )
