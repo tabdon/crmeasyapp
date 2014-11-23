@@ -1,0 +1,23 @@
+<div class="gi-header">
+    <h3 class="ad-mh">{{ account.name }}
+        {# Account Edit Link #}
+        <span>
+            <a class="ad-control edit-account btn btn-link"
+               href="">Edit</a>
+        </span>
+    </h3>
+
+</div>
+<div class="row gi-body">
+    <div class="col-md-9">
+        <h5 class="gi-sh">Description</h5>
+        <p>{{ account.desc }}</p>
+    </div>
+    <div class="col-md-3">
+        <h5 class="gi-sh">Address</h5>
+        <p class="nm">{{ account.address_one }}</p>
+        <p class="nm">{{ account.address_two }}</p>
+        <p class="nm">{{ account.city}}, {{ account.state }}</p>
+        <p class="nm">{{ account.phone}}</p>
+    </div>
+</div>

@@ -21,7 +21,7 @@
             <ul id="al-group" class="strip-list">
                 {% for account in accounts %}
                     <li class="al-item">
-                        <a href=""><h4 class="al-name">{{ account.name }}</h4></a>
+                        <a href="{{ account.get_absolute_url }}"><h4 class="al-name">{{ account.name }}</h4></a>
                         <span class="al-created">created on {{ account.created_on }}</span>
                     </li>
                 {% endfor %}
