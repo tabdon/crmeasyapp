@@ -1,0 +1,31 @@
+<form id="contact-form"
+      {# POST Destination #}
+      action=""
+      method="post">
+    {% csrf_token %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <td class="p-l-none">{{ form.first_name }}</td>
+                <td>{{ form.last_name }}</td>
+                <td>{{ form.role }}</td>
+                <td>{{ form.phone }}</td>
+                <td class="p-r-none">{{ form.email }}</td>
+            </tr>
+            {% if form.errors %}
+                <tr>
+                    <td>{{ form.first_name.errors }}</td>
+                    <td>{{ form.last_name.errors }}</td>
+                    <td>{{ form.role.errors }}</td>
+                    <td>{{ form.phone.errors }}</td>
+                    <td>{{ form.email.errors }}</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <input id="id_account" name="account"
+           type="hidden"
+           value="{% if request.GET.account %}
+           {{ request.GET.account }}{% else %}{{ account.id }}{% endif %}"/>
+    <input id="contact-submit" class="btn btn-primary m-r-none" type="submit" value="SAVE"/>
+</form>
