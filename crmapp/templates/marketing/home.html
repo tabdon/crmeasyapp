@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block nav-style %}mkt-nav{% endblock nav-style %}
+
+{% block content %}
+
+    {# Hero Section #}
+    <div class="mkt-s1">
+        <div class="mkt-s1-body container ">
+            <div class="row">
+                <h1 class="col-md-8">Never Miss Another Opportunity</h1>
+            </div>
+            <div class="row">
+                <p class="col-md-8">A CRM application that lets you track
+                all of your customers, meetings, notes,
+                and plans. Never forget an important
+                contact or follow up task again.</p>
+            </div>
+            <div class="row">
+                {# First Signup Link #}
+                <a href=""
+                   class="sign-up btn btn-success">Sign Up Now for $15/month!
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {# Main Section #}
+    <div class="mkt-s2 container">
+        <h2 class="mkt-s2-h">Why Buy CRM Easy?</h2>
+        <div class="mkt-s2-body">
+            <div class="col-md-4 mkt-vp">
+                <img class="" src="{{ STATIC_URL }}images/clock.png"/>
+                <h5>Save Time</h5>
+                <p>By tracking your customers in
+                an easy to use application you'll
+                be able to find them faster. Don't
+                waste time searching email, looking
+                at business cards, or looking online -
+                just open CRM Easy!</p>
+            </div>
+            <div class="col-md-4 mkt-vp">
+                <img class="" src="{{ STATIC_URL }}images/lightbulb.png"/>
+                <h5>Stay Current</h5>
+                <p>Keeping track of customer details
+                is a critical part of serving the customer
+                right. Make sure you know what they want and when
+                they want it. Use CRM Easy to track all customer
+                communications.</p>
+            </div>
+            <div class="col-md-4 mkt-vp">
+                <img class="" src="{{ STATIC_URL }}images/dollar.png"/>
+                <h5>Win Business</h5>
+                <p>By tracking customers and staying up
+                to date on their requirements you'll be
+                in a better position to sell your products
+                or services. You win and so does the customer.</p>
+            </div>
+        </div>
+        {# Second Signup Link #}
+        <a href="" class=" sgn-btm ">SIGN UP FOR ONLY $15/MONTH</a>
+    </div>
+
+{% endblock content %}
