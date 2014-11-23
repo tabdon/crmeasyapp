@@ -79,9 +79,81 @@
                         </tr>
                     </tbody>
                 </table>
-                <input class="btn btn-primary" type="submit" value="submit">
             </form>
             {# Credit Card Section #}
+            <h5 class="sn-sh">CREDIT CARD</h5>
+            <form id="payment-form" action="." method="post">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Card Number</th>
+                            <th>CVC</th>
+                            <th>Exp Month</th>
+                            <th>Exp Year</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="32" data-stripe="number"
+                                       class="col-md-10 form-control"/></td>
+                            <td><input type="text" size="4" data-stripe="cvc"
+                                       class="col-md-2 form-control"/></td>
+                            <td><input type="text" size="2" data-stripe="exp-month"
+                                       class="col-md-1 form-control"/></td>
+                            <td><input type="text" size="4" data-stripe="exp-year"
+                                       class="col-md-1 form-control"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <span class="payment-errors label label-danger"></span>
+                <div class="">
+                    {% for err in form.non_field_errors %}
+                        <p class="label label-danger">{{ err }}</p>
+                    {% endfor %}
+                </div>
+                <input id="payment-submit" type="submit" value="Signup"
+                       class="btn btn-primary"/>
+            </form>
         </div>
     </div>
 {% endblock content %}
+
+{% block footer_javascript_page %}
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+        // This identifies your website in the createToken call below
+        Stripe.setPublishableKey("{{ STRIPE_PUBLISHABLE_KEY }}");
+
+        var stripeResponseHandler = function(status, response) {
+            var $form = $('#payment-form');
+            var $regform = $('#user-reg-form');
+
+            if (response.error) {
+                // Show the errors on the form
+                $form.find('.payment-errors').text(response.error.message);
+                $form.find('#payment-submit').prop('disabled', false);
+            } else {
+                // token contains id, last4, and card type
+                var token = response.id;
+                // Insert the token into the form so it gets submitted to the server
+                $regform.append(
+                        $('<input type="hidden" name="stripeToken" />').val(token)
+                );
+                // and submit
+                $regform.get(0).submit();
+            }
+        };
+
+        jQuery(function($) {
+            $('#payment-form').submit(function(event) {
+            var $form = $(this);
+
+            // Disable the submit button to prevent repeated clicks
+            $form.find('#payment-submit').prop('disabled', true);
+
+            Stripe.createToken($form, stripeResponseHandler);
+
+            // Prevent the form from submitting with the default action
+            return false;
+            });
+        });
+    </script>
+{% endblock footer_javascript_page %}
