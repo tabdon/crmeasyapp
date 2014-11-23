@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Communication Detail{% endblock title %}
+
+{% block content %}
+    <div id="content-container" class="container p-none">
+        <ul id="co-list" class="strip-list col-md-12 p-none">
+            {% include 'communications/comm_item_view.html' %}
+        </ul>
+    </div>
+{% endblock %}
