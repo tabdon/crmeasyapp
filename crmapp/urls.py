@@ -8,7 +8,9 @@ urlpatterns = patterns('',
     url(r'^$', HomePage.as_view(), name="home"),
 
     # Subscriber related URLs
-
+    url(r'^signup/$',
+        'crmapp.subscribers.views.subscriber_new', name='sub_new'
+    ),
 
     # Admin URL
 
