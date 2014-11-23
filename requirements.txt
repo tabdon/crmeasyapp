@@ -4,5 +4,7 @@ dj-static==0.0.6
 django-toolbelt==0.0.1
 gunicorn==19.1.1
 psycopg2==2.5.4
+requests==0.13.2
 static3==0.5.1
+stripe==1.19.1
 wsgiref==0.1.2
