@@ -38,6 +38,47 @@
                     </tbody>
                 </table>
                 {# Billing Address Section #}
+                <h5 class="sn-sh">YOUR BILLING ADDRESS</h5>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>{{ form.first_name.label }}</th>
+                            <th>{{ form.last_name.label }}</th>
+                        </tr>
+                        <tr>
+                            <td>{{ form.first_name }}</td>
+                            <td>{{ form.last_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.first_name.errors }}</td>
+                            <td>{{ form.last_name.errors }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ form.address_one.label }}</th>
+                            <th>{{ form.address_two.label }}</th>
+                        </tr>
+                        <tr>
+                            <td>{{ form.address_one }}</td>
+                            <td>{{ form.address_two }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.address_one.errors }}</td>
+                            <td>{{ form.address_two.errrors }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ form.city.label }}</th>
+                            <th>{{ form.state.label }}</th>
+                        </tr>
+                        <tr>
+                            <td>{{ form.city }}</td>
+                            <td>{{ form.state }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.city.errors }}</td>
+                            <td>{{ form.state.errors }}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <input class="btn btn-primary" type="submit" value="submit">
             </form>
             {# Credit Card Section #}
