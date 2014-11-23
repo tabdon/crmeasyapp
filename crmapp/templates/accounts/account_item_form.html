@@ -1,5 +1,6 @@
 <form id="gi-form"
-      action=""
+      action="{% if account.uuid %}
+      {{ account.get_update_url }}{% else %}{% url 'account_new' %}{% endif %}"
       method="post">
     {% csrf_token %}
     <div id="gi-h-w">
