@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Account List{% endblock title %}
+
+{% block content %}
+    <div id="content-container" class="container p-none">
+        <div id="al-container" class="side-p">
+            <div id="al-control">
+                <h3 class="ad-mh">Account List
+                    {# Add Account Link #}
+                </h3>
+                {# Account Search Form #}
+            </div>
+            {# List of Accounts #}
+            <ul id="al-group" class="strip-list">
+                {% for account in accounts %}
+                    <li class="al-item">
+                        <a href=""><h4 class="al-name">{{ account.name }}</h4></a>
+                        <span class="al-created">created on {{ account.created_on }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            {# Pagination Section #}
+        </div>
+    </div>
+{% endblock content %}
