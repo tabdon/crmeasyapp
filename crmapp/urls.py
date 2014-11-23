@@ -7,6 +7,7 @@ from marketing.views import HomePage
 from accounts.views import AccountList
 from accounts.urls import account_urls
 from contacts.urls import contact_urls
+from contacts.views import ContactDelete
 
 urlpatterns = patterns('',
 
@@ -39,6 +40,9 @@ urlpatterns = patterns('',
     url(r'^account/(?P<uuid>[\w-]+)/', include(account_urls)),
 
     # Contact related URLS
+    url(r'^contact/(?P<pk>[\w-]+)/delete/$',
+        ContactDelete.as_view(), name='contact_delete'
+    ),
     url(r'^contact/new/$',
         'crmapp.contacts.views.contact_cru', name='contact_new'
     ),
