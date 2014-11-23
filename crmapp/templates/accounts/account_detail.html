@@ -29,6 +29,20 @@
             </div>
         </div>
         {# List Communications #}
+        <div id="co-container" class="ad-container">
+            <div class="ad-headers">
+                <h4 class="ad-mh m-none">Communications</h4>
+            </div>
+            <div id="co-body" class="ad-container">
+                {# Communications Item Form #}
+                {# List of Communications #}
+                <ul id="co-list" class="strip-list col-md-12 p-none">
+                    {% for comm in communications %}
+                        {% include 'communications/comm_item_view.html' %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
