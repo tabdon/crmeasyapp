@@ -100,4 +100,54 @@ $(document).ready(function() {
         $(this).remove(); // Remove the form
     });
 
+    // Communications - When the Subject of the form is clicked, the whole form is displayed
+    $('#co-container').delegate('#id_subject', 'focus', function() {
+        $('#comm-form-internals').show();
+    });
+
+    // Communications - Use AJAX to get the Communications Add Form
+    $('#co-container').delegate('#new-comm', 'click', function(e) {
+        e.preventDefault();
+        $.get($(this).attr('href'), function(data) {
+            $('#co-list').prepend(data);
+        })
+    });
+
+
+    // Communications - Use AJAX to get the Comm Edit Form
+    $('#co-container').delegate('.comm-edit', 'click', function(e) {
+        e.preventDefault();
+        var that = $(this);
+        $.get($(this).attr('href'), function(data) {
+            $('#co-body').find('#comm-form').remove();
+            $('#co-form-wrapper').append(data);
+            $('#comm-form-internals').show();
+            that.parent().parent().parent().remove();
+        })
+    });
+
+
+    // Communications - Use AJAX to save the Comm Add Form
+    $('#co-container').delegate('#comm-form', 'submit', function(e) {
+        e.preventDefault();
+        var form = $('#comm-form');
+        var url = form.attr('action');
+        $.post(url, form.serialize(), function(data) {
+            if ($(data).find('#comm-form-internals').html()) {
+                // If form comes back then display it properly
+                form.remove();
+                $('#co-form-wrapper').prepend(data); // Appends the newly created Communication
+                $('#comm-form-internals').show(); // Make sure it shows
+                $('#comm-form').attr('action', '/comm/new/'); // Make sure the action is set to new
+            } else {
+                // When is this supposed to kick in?
+                resetForm($('#comm-form')); // Resets the form values
+                $('#comm-form').find('ul').remove(); // If there are any errors on the form, remove them all
+                $('#comm-form-internals').hide(); // Hides everything but the subject
+                $('#co-list').prepend(data); // Appends the newly created Communication
+                $('#comm-form').attr('action', '/comm/new/'); // Make sure the action is set to new
+            }
+        })
+    });
+
 });
