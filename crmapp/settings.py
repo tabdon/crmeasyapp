@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'crmapp.marketing',
     'crmapp.subscribers',
     'crmapp.accounts',
+    'crmapp.contacts',
 )
 
 MIDDLEWARE_CLASSES = (
