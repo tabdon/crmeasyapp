@@ -6,7 +6,7 @@
                href=""></a>
             {# Comm Edit URL #}
             <a class="pen comm-control comm-edit"
-               href=""></a>
+               href="{{ comm.get_update_url }}?account={{ account.id }}"></a>
         </span>
     </h5>
     <p class="co-item-date">on {{ comm.date }}</p>
