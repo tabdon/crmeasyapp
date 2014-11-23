@@ -1,0 +1,34 @@
+<form id="comm-form"
+      {# POST Destination #}
+      action=""
+      method="post">
+    {% csrf_token %}
+    <p>{{ form.subject }}</p>
+    <div id="comm-form-internals">
+        <p>{{ form.subject.errors }}</p>
+        <p>{{ form.notes }}</p>
+        <p>{{ form.notes.errors }}</p>
+        <table class="table comm-form">
+            <tbody>
+                <tr>
+                    <td>{{ form.kind }}</td>
+                    <td>{{ form.date }}</td>
+                    <td class="comm-submit-td">
+                        <input class="btn btn-success comm-submit"
+                               type="submit" value="SAVE"/></td>
+                </tr>
+                <tr>
+                    <td>{{ form.kind.errors }}</td>
+                    <td>{{ form.date.errors }}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <input id="id_account" name="account"
+           type="hidden"
+           value="{% if request.GET.account %}
+           {{ request.GET.account }}{% else %}{{ account.id }}{% endif %}"/>
+    <input id="id_owner" name="owner" type="hidden" value="{{ user.username }}"/>
+</form>
