@@ -22,7 +22,10 @@
                     </tbody>
                 </table>
                 {# New Contact Link #}
-                <a id="new-contact" class="btn btn-link" href="">New Contact</a>
+                <a id="new-contact"
+                   class="btn btn-link"
+                   href="{% url 'contact_new' %}?account={{ account.id }}">
+                    New Contact</a>
             </div>
         </div>
         {# List Communications #}
