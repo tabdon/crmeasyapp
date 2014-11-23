@@ -4,6 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from marketing.views import HomePage
+from accounts.views import AccountList
 
 urlpatterns = patterns('',
 
@@ -27,7 +28,9 @@ urlpatterns = patterns('',
     ),
 
     # Account related URLs
-
+    url(r'^account/list/$',
+        AccountList.as_view(), name='account_list'
+    ),
 
     # Contact related URLS
 
