@@ -8,6 +8,7 @@ from accounts.views import AccountList
 from accounts.urls import account_urls
 from contacts.urls import contact_urls
 from contacts.views import ContactDelete
+from communications.urls import comm_urls
 
 urlpatterns = patterns('',
 
@@ -49,5 +50,6 @@ urlpatterns = patterns('',
     url(r'^contact/(?P<uuid>[\w-]+)/', include(contact_urls)),
 
     # Communication related URLs
+    url(r'^comm/(?P<uuid>[\w-]+)/', include(comm_urls)),
 
 )
