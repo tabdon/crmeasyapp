@@ -1,0 +1,29 @@
+<form id="gi-form"
+      action=""
+      method="post">
+    {% csrf_token %}
+    <div id="gi-h-w">
+        <h3 class="gi-mh">{{ form.name }}</h3>
+        <span>{{ form.name.errors }}</span>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <p>{{ form.desc }}</p>
+            <span>{{ form.desc.errors }}</span>
+        </div>
+        <div class="col-md-3">
+            <p class="nm">{{ form.address_one }}</p>
+            <span>{{ form.address_one.errors }}</span>
+            <p class="nm">{{ form.address_two }}</p>
+            <span>{{ form.address_one.errors }}</span>
+            <p class="nm">{{ form.city}}</p>
+            <span>{{ form.city.errors }}</span>
+            <p class="nm">{{ form.state }}</p>
+            <span>{{ form.state.errors }}</span>
+            <p class="nm">{{ form.phone}}</p>
+            <span>{{ form.phone.errors }}</span>
+        </div>
+    </div>
+    <input id="gi-form-submit" class="btn btn-primary" type="submit" value="SAVE">
+    <p>{{ form.non_field_errors }}</p>
+</form>

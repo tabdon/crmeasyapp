@@ -7,6 +7,10 @@
             <div id="al-control">
                 <h3 class="ad-mh">Account List
                     {# Add Account Link #}
+                    <span class="pull-right">
+                        <a href="{% url 'account_new' %}"
+                           class="btn btn-link p-r-none">+ Add New Account</a>
+                    </span>
                 </h3>
                 {# Account Search Form #}
                 <form action="{% url 'account_list' %}" method="get">
